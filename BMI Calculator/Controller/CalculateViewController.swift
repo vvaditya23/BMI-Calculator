@@ -21,7 +21,7 @@ class CalculateViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func heightSliderChanged(_ sender: UISlider) {
         appBrain.inputHeight(height: sender.value)
         heightLabel.text = appBrain.getHeightLabel()
@@ -38,7 +38,8 @@ class CalculateViewController: UIViewController {
         appBrain.calculateBMI(height: height, weight: weight)
         
         performSegue(withIdentifier: "goToResult", sender: CalculateViewController.self)
-            }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultViewController
